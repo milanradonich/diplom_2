@@ -17,7 +17,7 @@ class TestCreateUser:
         assert response_data.get("accessToken") is not None, "missing Access token"
         assert response_data.get("refreshToken") is not None, "missing Refresh token"
 
-    def test_create_user_is_already_registered(self):
+    def test_create_user_is_already_registered_get_error(self):
         response = self.user_api.create_user(email=user_email, password=user_password,
                                              name=user_name)
         result = response.status_code
@@ -30,7 +30,7 @@ class TestCreateUser:
         (user_email, None, user_name),
         (None, user_password, user_name)
     ])
-    def test_create_user_without_one_required_fields(self, email, password, name):
+    def test_create_user_without_one_required_fields_get_error(self, email, password, name):
         response = self.user_api.create_user(email=email, password=password, name=name)
         result = response.status_code
         assert result == 403

@@ -2,7 +2,9 @@ import requests
 import random
 import string
 import faker
+import json
 
+from base_api.get_ingredients_api import GetIngredients
 from base_urls import *
 
 
@@ -39,6 +41,20 @@ def create_new_user_and_return_email_password_name():
         login_pass.append(name)
 
     return response.status_code, response.json(), login_pass
+
+
+def create_ingredients_list():
+    ingredients_list = []
+    new_ingredients = GetIngredients(MAIN_URL)
+    response = new_ingredients.get_ingredients().json()
+    if response.get("success") and "data" in response:
+        data = response["data"]
+        num_ingredients = random.randint(1, 5)
+        random_ingredients = random.sample(data, num_ingredients)
+        ingredients_list = [ingredient["_id"] for ingredient in random_ingredients]
+
+    return ingredients_list
+
 
 
 
