@@ -2,7 +2,6 @@ import requests
 import random
 import string
 import faker
-import json
 
 from base_api.get_ingredients_api import GetIngredients
 from base_urls import *

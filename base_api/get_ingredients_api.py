@@ -1,5 +1,3 @@
-
-
 from http_client import HttpClient, HttpMethods
 from base_urls import *
 

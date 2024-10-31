@@ -1,4 +1,3 @@
-import json
 from base_urls import *
 from http_client import HttpClient, HttpMethods
 

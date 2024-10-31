@@ -11,7 +11,3 @@ new_email = get_sing_up_data()
 new_password = "new_password"
 
 
-
-# "email": "milan111_radonich13@yandex.ru",
-# "password": "1234",
-# "name": "milan"
